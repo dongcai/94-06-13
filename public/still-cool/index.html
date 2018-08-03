@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>94-06-13</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="/">94-06-13</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="../old-school/">Old School</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../still-cool/">Still Cool <span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../super-cool/">Super Cool</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../super-cool-plus/">Super Cool Plus</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<main role="main" class="container">
+
+    <div class="web-revolution">
+        <div id="topic">
+            <form method="get">
+                <div className="form-group">
+                    <label>
+                        Pick your favorite topic:
+                        <select class="form-control" name="topic" id="select-topic">
+                            <option value="php">php</option>
+                            <option value="jquery" selected>jquery</option>
+                            <option value="reactjs">reactjs</option>
+                        </select>
+                    </label>
+                </div>
+            </form>
+        </div>
+
+        <div id="root">
+
+            <div>
+                <ul id="posts">
+
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+
+    <h4>Source Code</h4>
+    <script src="https://gist.github.com/dongcai/158d9b7ce68cf89def67b4c2a499b707.js"></script>
+
+</main>
+<!-- /.container -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+    function getRedditFeed(){
+        var topic = $('#select-topic').val();
+        $.getJSON("https://www.reddit.com/r/" + topic + ".json", function(data) {
+            $.each(data.data.children, function(i,item){
+                $('<li><a href="' + item.data.url + '" target="_blank">' + item.data.title + '</a></li>').appendTo("#posts");
+            });
+        });
+    }
+
+    $(document).ready(function(){
+        getRedditFeed();
+
+        $('#select-topic').change(function () {
+            $('#posts').html(''); // clear posts
+            getRedditFeed();
+        })
+    })
+
+</script>
+
+</body>
+
+</html>

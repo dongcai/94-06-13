@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>94-06-13</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="/">94-06-13</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="old-school/">Old School</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="still-cool/">Still Cool</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="super-cool/">Super Cool</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="super-cool-plus/">Super Cool Plus</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<main role="main" class="container">
+
+    <div class="web-revolution">
+        <h1>Revolution of Dynamic Website</h1>
+        <p class="lead"><i>Reload, jQuery, and then React</i></p>
+
+        <p>
+            94-06-13 is a small project to help understand what react is. It shows how to create a dynamic website in
+            three different ways (or three different ages.) By dynamic, it means how the page interacts with the user's
+            action to get the dynamic contents from
+            the server. Here are three:
+
+        <ol>
+            <li><a href="/old-school/">Old School</a> - refresh the page to get the content from the server, and then
+                the whole DOM tree got to reload.
+            </li>
+            <li><a href="/still-cool/">Still Cool</a> - use Ajax library (most popular via jQuery) to make an Async call
+                to get the data from the server and update dom tree, but only those elements need to be updated, and
+                others remain untouched.
+            </li>
+            <li><a href="/super-cool/">Super Cool</a> - use Ajax library (like fetch/axios) to make an Async call to get
+                the data from the server and then React will do the rest.
+            </li>
+            <li><a href="/super-cool-plus/">Super Cool Plus</a> -
+                same idea as super-cool, but use only one ReactDOM.render().
+            </li>
+        </ol>
+
+
+        </p>
+    </div>
+
+</main>
+<!-- /.container -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
